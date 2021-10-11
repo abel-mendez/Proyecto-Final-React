@@ -1,5 +1,5 @@
 import React from "react-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Navbar,
   Container,
@@ -8,13 +8,21 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { buscadorApi } from "../api/buscadorApi";
 import { NavLink } from "react-router-dom";
 export default function Header() {
   const [form, setForm] = useState("");
+  const [search, setSearch] = useState([]);
   const handleChange = (event) => {
     setForm(event.target.value);
   };
-
+  useEffect(() => {
+    buscar();
+  }, [form]);
+  const buscar = async () => {
+    let buscado = await buscadorApi.get(form);
+    setSearch(buscado.data);
+  };
   return (
     <>
       <Navbar bg="success" variant="dark" expand="lg">
@@ -30,15 +38,20 @@ export default function Header() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
+              <input
+                class="form-control"
+                list="datalistOptions"
+                id="exampleDataList"
+                placeholder="Type to search..."
                 onChange={(event) => {
                   handleChange(event);
                 }}
               />
+              <datalist id="datalistOptions">
+                {search.map((element) => {
+                  return <option key={element} value={element} />;
+                })}
+              </datalist>
               <NavLink exact to={`/${form}`}>
                 <Button variant="light">Search</Button>
               </NavLink>
