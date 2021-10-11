@@ -1,5 +1,5 @@
 import "./App.css";
-import Footer from "./components/header/footer/footer";
+import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import { Switch, Route } from "react-router-dom";
 function App() {
@@ -20,6 +20,7 @@ function App() {
           <h1>Soy una Comida</h1>
         </Route>
       </Switch>
+      <Footer />
     </>
   );
 }
