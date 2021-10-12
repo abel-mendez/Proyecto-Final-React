@@ -1,13 +1,6 @@
 import React from "react-dom";
 import { useState, useEffect } from "react";
-import {
-  Navbar,
-  Container,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
 import { buscadorApi } from "../api/buscadorApi";
 import { NavLink } from "react-router-dom";
 export default function Header() {

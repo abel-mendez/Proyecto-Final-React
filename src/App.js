@@ -1,7 +1,8 @@
 import "./App.css";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
-import Contact from "./components/contact/contact"
+import Home from "./components/home/home";
+import Contact from "./components/contact/contact";
 import { Switch, Route } from "react-router-dom";
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <h1>Soy un home</h1>
+          <Home />
         </Route>
         <Route exact path="/about">
           <h1>Soy una About</h1>
