@@ -1,6 +1,7 @@
 import "./App.css";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
+import Contact from "./components/contact/contact"
 import { Switch, Route } from "react-router-dom";
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      <Contact />
     </>
   );
 }
