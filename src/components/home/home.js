@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
-import { Card } from "react-bootstrap";
+import ButtonGroup from "../util/buttonGroup";
+import Food from "../util/food";
 import { useState, useEffect } from "react";
 import { getFoodApi } from "../api/getFoodApi";
 import Loading from "../util/loading";
@@ -8,11 +9,14 @@ import "./home.css";
 const Home = () => {
   const [comidas, setComidas] = useState([]);
   useEffect(() => {
-    buscar("rice");
+    setTimeout(() => {
+      buscar("rice");
+    }, 1000);
   }, []);
   const buscar = async (params) => {
     let buscado = await getFoodApi.get(params);
     setComidas(buscado.data.hints);
+    console.log(buscado.data.hints);
   };
   if (comidas.length === 0) {
     return (
@@ -23,20 +27,11 @@ const Home = () => {
   }
   return (
     <div className="container p-5 align-center">
+      <ButtonGroup />
+      <hr></hr>
       <div className="row">
         {comidas.map((element) => {
-          return (
-            <div className=" col-12 col-md-6 col-lg-4 mb-3 ">
-              <Card style={{ width: "18rem" }} className="m-auto shadow-lg">
-                <Card.Img variant="top" src={element.food.image} />
-                <Card.Body>
-                  <Card.Title className="text-center">
-                    {element.food.label}
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-            </div>
-          );
+          return <Food image={element.food.image} label={element.food.label} />;
         })}
       </div>
     </div>
