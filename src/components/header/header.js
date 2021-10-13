@@ -32,7 +32,7 @@ export default function Header() {
           <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex">
               <input
-                class="form-control"
+                className="form-control"
                 list="datalistOptions"
                 id="exampleDataList"
                 placeholder="Type to search..."
