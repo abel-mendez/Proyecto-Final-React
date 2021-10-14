@@ -4,6 +4,8 @@ import Header from "./components/header/header";
 import Home from "./components/home/home";
 import Contact from "./components/contact/contact";
 import { Switch, Route } from "react-router-dom";
+import FoodCard from "./components/card/foodCard";
+
 function App() {
   return (
     <>
@@ -22,8 +24,9 @@ function App() {
           <h1>Soy una Comida</h1>
         </Route>
       </Switch>
-      <Footer />
+      <FoodCard />
       <Contact />
+      <Footer />
     </>
   );
 }
