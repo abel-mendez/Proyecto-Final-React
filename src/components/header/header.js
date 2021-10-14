@@ -21,12 +21,7 @@ export default function Header() {
       <Navbar bg="success" variant="dark" expand="lg">
         <Container fluid>
           <NavLink exact to="/">
-            <Navbar.Brand href="#">
-              <img
-                src="https://i.imgur.com/vVrRswJ.png"
-                className="brand"
-              ></img>
-            </Navbar.Brand>
+            <img src="https://i.imgur.com/vVrRswJ.png" className="brand"></img>
           </NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">

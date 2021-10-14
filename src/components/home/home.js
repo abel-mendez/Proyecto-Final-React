@@ -33,6 +33,7 @@ const ordenar = (orden, comidas) => {
 const Home = () => {
   const [comidas, setComidas] = useState();
   const [orden, setOrden] = useState(-1);
+  const [pagina, setPagina] = useState(0);
   useEffect(() => {
     buscar("rice");
   }, []);
@@ -47,6 +48,18 @@ const Home = () => {
       setOrden(value);
     }
   };
+  const handlePrevious = () => {
+    if (pagina > 0) {
+      setPagina(pagina - 6);
+    }
+  };
+  const handleNext = () => {
+    console.log(comidas.length);
+    if (comidas.length - 6 > pagina) {
+      setPagina(pagina + 6);
+      console.log("hola");
+    }
+  };
   if (comidas === undefined) {
     return (
       <div className="loading">
@@ -56,30 +69,50 @@ const Home = () => {
   }
   return (
     <div className="container p-5 align-center">
-      <div
-        className="btn-group"
-        role="group"
-        aria-label="Basic radio toggle button group"
-      >
-        <p
-          onClick={() => {
-            handleChange(0);
-          }}
+      <div className="d-flex justify-content-between">
+        <div
+          className="btn-group"
+          role="group"
+          aria-label="Basic radio toggle button group"
         >
-          <ButtonCheck key="down" id="down" name="Down" />
-        </p>
-        <p
-          onClick={() => {
-            handleChange(1);
-          }}
-        >
-          <ButtonCheck key="up" id="up" name="Up" />
-        </p>
+          <p
+            onClick={() => {
+              handleChange(0);
+            }}
+          >
+            <ButtonCheck key="down" id="down" name="Down" />
+          </p>
+          <p
+            onClick={() => {
+              handleChange(1);
+            }}
+          >
+            <ButtonCheck key="up" id="up" name="Up" />
+          </p>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              handlePrevious();
+            }}
+            className="btn btn-outline-success"
+          >
+            previous
+          </button>
+          <button
+            onClick={() => {
+              handleNext();
+            }}
+            className="btn btn-outline-success"
+          >
+            next
+          </button>
+        </div>
       </div>
 
       <hr></hr>
       <div className="row">
-        {comidas.map((element) => {
+        {comidas.slice(pagina, pagina + 6).map((element) => {
           return (
             <Food
               key={element.food.foodId}
