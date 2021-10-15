@@ -33,9 +33,10 @@ const ordenar = (orden, comidas) => {
 const Home = () => {
   const [comidas, setComidas] = useState();
   const [orden, setOrden] = useState(-1);
-  const [pagina, setPagina] = useState(0);
+  const [pagina, setPagina] = useState(1);
+  const [cantidad, setCantidad] = useState(6);
   useEffect(() => {
-    buscar("rice");
+    buscar("water");
   }, []);
   const buscar = async (params) => {
     let buscado = await getFoodApi.get(params);
@@ -49,15 +50,13 @@ const Home = () => {
     }
   };
   const handlePrevious = () => {
-    if (pagina > 0) {
-      setPagina(pagina - 6);
+    if (pagina > 1) {
+      setPagina(pagina - 1);
     }
   };
   const handleNext = () => {
-    console.log(comidas.length);
-    if (comidas.length - 6 > pagina) {
-      setPagina(pagina + 6);
-      console.log("hola");
+    if (comidas.length / cantidad > pagina) {
+      setPagina(pagina + 1);
     }
   };
   if (comidas === undefined) {
@@ -91,6 +90,22 @@ const Home = () => {
           </p>
         </div>
         <div>
+          <select
+            onChange={(event) => {
+              setCantidad(event.target.value);
+            }}
+            className="form-select"
+            aria-label="Default select example"
+          >
+            <option value="6">6 comidas</option>
+            <option value="9">9 comidas</option>
+            <option value="12">12 comidas</option>
+            <option value="15">15 comidas</option>
+            <option value="18">18 comidas</option>
+            <option value="21">21 comidas</option>
+          </select>
+        </div>
+        <div>
           <button
             onClick={() => {
               handlePrevious();
@@ -112,15 +127,17 @@ const Home = () => {
 
       <hr></hr>
       <div className="row">
-        {comidas.slice(pagina, pagina + 6).map((element) => {
-          return (
-            <Food
-              key={element.food.foodId}
-              image={element.food.image}
-              label={element.food.label}
-            />
-          );
-        })}
+        {comidas
+          .slice((pagina - 1) * cantidad, pagina * cantidad)
+          .map((element) => {
+            return (
+              <Food
+                key={element.food.foodId}
+                image={element.food.image}
+                label={element.food.label}
+              />
+            );
+          })}
       </div>
     </div>
   );
