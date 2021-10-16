@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 import ButtonCheck from "../util/buttonCheck";
 import Food from "../util/food";
 import { useState, useEffect } from "react";
@@ -35,9 +36,19 @@ const Home = () => {
   const [orden, setOrden] = useState(-1);
   const [pagina, setPagina] = useState(1);
   const [cantidad, setCantidad] = useState(6);
+  const [search, setSearch] = useState("water");
+  const params = useParams();
   useEffect(() => {
-    buscar("water");
-  }, []);
+    buscar(search);
+  });
+  useEffect(() => {
+    if (params.search !== undefined) {
+      setSearch(params.search);
+    } else {
+      setSearch("water");
+    }
+  }, [params]);
+
   const buscar = async (params) => {
     let buscado = await getFoodApi.get(params);
     setComidas(buscado.data.hints);
@@ -97,12 +108,12 @@ const Home = () => {
             className="form-select"
             aria-label="Default select example"
           >
-            <option value="6">6 comidas</option>
-            <option value="9">9 comidas</option>
-            <option value="12">12 comidas</option>
-            <option value="15">15 comidas</option>
-            <option value="18">18 comidas</option>
-            <option value="21">21 comidas</option>
+            <option value="6">6 foods</option>
+            <option value="9">9 foods</option>
+            <option value="12">12 foods</option>
+            <option value="15">15 foods</option>
+            <option value="18">18 foods</option>
+            <option value="21">21 foods</option>
           </select>
         </div>
         <div>
@@ -131,11 +142,14 @@ const Home = () => {
           .slice((pagina - 1) * cantidad, pagina * cantidad)
           .map((element) => {
             return (
-              <Food
+              <NavLink
+                className=" col-12 col-md-6 col-lg-4 mb-3 "
+                exact
                 key={element.food.foodId}
-                image={element.food.image}
-                label={element.food.label}
-              />
+                to={`/food/${element.food.foodId}`}
+              >
+                <Food image={element.food.image} label={element.food.label} />
+              </NavLink>
             );
           })}
       </div>

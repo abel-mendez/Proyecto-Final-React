@@ -12,19 +12,18 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home key="default" />
         </Route>
         <Route exact path="/about">
           <h1>Soy una About</h1>
         </Route>
         <Route exact path="/:search">
-          <h1>Buscando con search</h1>
+          <Home key="search" />
         </Route>
-        <Route exact path="/food/:nombre">
-          <h1>Soy una Comida</h1>
+        <Route exact path="/food/:id">
+          <FoodCard />
         </Route>
       </Switch>
-      <FoodCard />
       <Contact />
       <Footer />
     </>
