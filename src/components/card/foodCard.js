@@ -1,50 +1,45 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { getFoodApi } from "../api/getFoodApi";
 import { useParams } from "react-router";
-import Food from "../util/food";
 import Loading from "../util/loading";
+import axios from "axios";
 
 export default function FoodCard() {
-  //pido el parametro
-  /*const [foodInfo, setFoodInfo] = useState([]);
-  useEffect(() => {
-    setFoodInfo(getFoodApi.app_id)
-  });*/
-
+  const [buscado, setBuscado] = useState();
   const params = useParams();
+  const buscar = async (params) => {
+    let buscado = await axios.get(
+      "https://api.edamam.com/api/food-database/v2/parser?app_id=ea9ed3c9&app_key=f17a5f9de1b1a29ec890b8271f82bcfe&ingr=" +
+        params.id
+    );
+    setBuscado(buscado.data.hints[0].food);
+    console.log(buscado.data.hints[0].food);
+  };
 
   useEffect(() => {
-    getFoodApi.get(params.id).then((data) => console.log(data));
+    buscar(params);
   }, []);
 
-  console.log(params);
-  // const [buscado, setBuscado] = useState(); //Hook
-  // const buscar = async (params) => {
-
-  //   setBuscado(resp);
-  // };
-
-  // if (buscado === undefined) {
-  //   return (
-  //     <div className="loading">
-  //       <Loading></Loading>
-  //     </div>
-  //   );
-  // }
-
-  //busco en la api
-  //muestro el componente
-  //muestro el loading
-
+  if (buscado === undefined) {
+    return (
+      <div className="loading">
+        <Loading></Loading>
+      </div>
+    );
+  }
   return (
     <div>
       <div className="d-flex justify-content-center">
         <Card style={{ width: "20rem" }}>
-          <Card.Img variant="top" src="https://i.imgur.com/1iQw2NN.jpg" />
+          <Card.Img
+            variant="top"
+            src={
+              buscado.image ? buscado.image : "https://i.imgur.com/1iQw2NN.jpg"
+            }
+          />
           <Card.Body>
-            <Card.Title>asd</Card.Title>
+            <Card.Title>{buscado.label}</Card.Title>
             <Card.Text>Food description</Card.Text>
             <Button variant="primary">Go somewhere</Button>
           </Card.Body>
