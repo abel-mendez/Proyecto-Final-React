@@ -62,7 +62,7 @@ export default function Footer() {
           <NavLink
             style={{ textDecoration: "none", color: "white" }}
             className=" col-12 col-md-6 col-lg-4 mb-3 align-self-center"
-            to={`/about/`}
+            to={"contact"}
           >
             Contact Us
           </NavLink>

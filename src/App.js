@@ -17,6 +17,9 @@ function App() {
         <Route exact path="/about">
           <h1>Soy una About</h1>
         </Route>
+        <Route exact path="/contact">
+          <Contact />
+        </Route>
         <Route exact path="/:search">
           <Home key="search" />
         </Route>
@@ -24,7 +27,7 @@ function App() {
           <FoodCard />
         </Route>
       </Switch>
-      <Contact />
+
       <Footer />
     </>
   );
