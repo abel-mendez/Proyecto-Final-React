@@ -20,7 +20,7 @@ export default function Header() {
     <>
       <Navbar bg="success" variant="dark" expand="lg">
         <Container fluid>
-          <NavLink exact to="/">
+          <NavLink className="nav-link img-fluid" exact to="/landing">
             <img src="https://i.imgur.com/vVrRswJ.png" className="brand"></img>
           </NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />
