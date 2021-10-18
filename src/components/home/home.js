@@ -40,7 +40,7 @@ const Home = () => {
   const params = useParams();
   useEffect(() => {
     buscar(search);
-  }, []);
+  }, [search]);
   useEffect(() => {
     if (params.search !== undefined) {
       setSearch(params.search);
@@ -52,7 +52,6 @@ const Home = () => {
   const buscar = async (params) => {
     let buscado = await getFoodApi.get(params);
     setComidas(buscado.data.hints);
-    console.log(buscado.data.hints);
   };
   const handleChange = (value) => {
     if (orden !== value) {
