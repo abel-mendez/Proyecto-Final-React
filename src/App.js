@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/landing">
+        <Route exact path="/">
           <Landing />
         </Route>
 
@@ -25,13 +25,13 @@ function App() {
           <h1>Soy una About</h1>
           <Footer />
         </Route>
-        <Route exact path="/">
+        <Route exact path="/home">
           <Header />
           <Home key="default" />
           <Footer />
         </Route>
 
-        <Route exact path="/:search">
+        <Route exact path="/home/:search">
           <Header />
           <Home key="search" />
           <Footer />

@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import ButtonCheck from "../util/buttonCheck";
 import Food from "../util/food";
 import { useState, useEffect } from "react";
-import { getFoodApi } from "../api/getFoodApi";
 import Loading from "../util/loading";
+import axios from "axios";
 import "./home.css";
 const ordenar = (orden, comidas) => {
   if (orden === 1) {
@@ -50,7 +50,10 @@ const Home = () => {
   }, [params]);
 
   const buscar = async (params) => {
-    let buscado = await getFoodApi.get(params);
+    let buscado = await axios.get(
+      "https://api.edamam.com/api/food-database/v2/parser?app_id=ea9ed3c9&app_key=f17a5f9de1b1a29ec890b8271f82bcfe&ingr=" +
+        params
+    );
     setComidas(buscado.data.hints);
   };
   const handleChange = (value) => {

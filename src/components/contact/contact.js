@@ -89,12 +89,12 @@ export default function Contact() {
             />
             <p className="text-danger">{errors.message}</p>
           </Form.Group>
-          <NavLink to="/">
-            <Button variant="secondary" disabled={errors.err || form.vacio}>
+          <Button variant="secondary" disabled={errors.err || form.vacio}>
+            <NavLink className="text-white text-decoration-none" to="/home">
               Submit
-            </Button>
-          </NavLink>
-          <NavLink to="/">
+            </NavLink>
+          </Button>
+          <NavLink to="/home">
             <Button variant="danger">Cancel</Button>
           </NavLink>
         </Form>
