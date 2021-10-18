@@ -30,7 +30,7 @@ export default function FoodCard() {
   }
   return (
     <div>
-      <div className="d-flex justify-content-center">
+      <div className=" p-5 d-flex justify-content-center">
         <Card style={{ width: "20rem" }}>
           <Card.Img
             variant="top"

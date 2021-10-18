@@ -10,28 +10,38 @@ import FoodCard from "./components/card/foodCard";
 function App() {
   return (
     <>
-      <Header />
       <Switch>
         <Route exact path="/landing">
           <Landing />
         </Route>
-        <Route exact path="/">
-          <Home key="default" />
+
+        <Route exact path="/contact">
+          <Header />
+          <Contact />
+          <Footer />
         </Route>
         <Route exact path="/about">
+          <Header />
           <h1>Soy una About</h1>
+          <Footer />
         </Route>
-        <Route exact path="/contact">
-          <Contact />
+        <Route exact path="/">
+          <Header />
+          <Home key="default" />
+          <Footer />
         </Route>
+
         <Route exact path="/:search">
+          <Header />
           <Home key="search" />
+          <Footer />
         </Route>
         <Route exact path="/food/:id">
+          <Header />
           <FoodCard />
+          <Footer />
         </Route>
       </Switch>
-      <Footer />
     </>
   );
 }

@@ -6,7 +6,7 @@ import "./footer.css";
 export default function Footer() {
   return (
     <>
-      <div className="bg-success fixed-bottom d-flex align-self-center justify-content-between me-auto my-lg-0 flex-grow-0 p-2">
+      <div className="bg-success d-flex align-self-center justify-content-between me-auto my-lg-0 flex-grow-0 p-2">
         <div className="align-self-center">
           <div>
             <h6>Leandro Carello</h6>
