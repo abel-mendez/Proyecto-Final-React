@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
+import Contact from "../contact/contact";
 import "./footer.css";
 
 export default function Footer() {
@@ -62,7 +63,8 @@ export default function Footer() {
           <NavLink
             style={{ textDecoration: "none", color: "white" }}
             className=" col-12 col-md-6 col-lg-4 mb-3 align-self-center"
-            to={"contact"}
+            exact
+            to="/contact"
           >
             Contact Us
           </NavLink>
