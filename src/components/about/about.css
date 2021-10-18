@@ -1,0 +1,12 @@
+.cardsBody {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 100px;
+}
+
+.cardsBody div {
+  padding: 10px 10px 10px; /* Arreglar esto xd */
+}
