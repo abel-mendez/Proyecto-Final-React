@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
-import Contact from "../contact/contact";
+import { NavLink } from "react-router-dom";
 import "./footer.css";
 
 export default function Footer() {

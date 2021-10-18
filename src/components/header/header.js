@@ -1,7 +1,7 @@
 import React from "react-dom";
 import { useState, useEffect } from "react";
 import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
-import { buscadorApi } from "../api/buscadorApi";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 export default function Header() {
   const [form, setForm] = useState("");
@@ -13,14 +13,17 @@ export default function Header() {
     buscar();
   }, [form]);
   const buscar = async () => {
-    let buscado = await buscadorApi.get(form);
+    let buscado = await axios.get(
+      "https://api.edamam.com/auto-complete?app_id=ea9ed3c9&app_key=f17a5f9de1b1a29ec890b8271f82bcfe&q=" +
+        form
+    );
     setSearch(buscado.data);
   };
   return (
     <>
       <Navbar bg="success" variant="dark" expand="lg">
         <Container fluid>
-          <NavLink className="nav-link img-fluid" exact to="/landing">
+          <NavLink className="nav-link img-fluid" exact to="/">
             <img src="https://i.imgur.com/vVrRswJ.png" className="brand"></img>
           </NavLink>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -40,7 +43,7 @@ export default function Header() {
                   return <option key={element} value={element} />;
                 })}
               </datalist>
-              <NavLink exact to={`/${form}`}>
+              <NavLink exact to={`/home/${form}`}>
                 <Button variant="light">Search</Button>
               </NavLink>
             </Form>
@@ -49,7 +52,7 @@ export default function Header() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavLink className="nav-link " exact to="/">
+              <NavLink className="nav-link " exact to="/home">
                 Home
               </NavLink>
               <NavLink className="nav-link" exact to="/about">
