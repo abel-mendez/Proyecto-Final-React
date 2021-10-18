@@ -4,6 +4,7 @@ import Header from "./components/header/header";
 import Home from "./components/home/home";
 import Landing from "./components/landingPage/landingPage";
 import Contact from "./components/contact/contact";
+import About from "./components/about/about";
 import { Switch, Route } from "react-router-dom";
 import FoodCard from "./components/card/foodCard";
 
@@ -14,7 +15,6 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-
         <Route exact path="/contact">
           <Header />
           <Contact />
@@ -22,7 +22,7 @@ function App() {
         </Route>
         <Route exact path="/about">
           <Header />
-          <h1>Soy una About</h1>
+          <About />
           <Footer />
         </Route>
         <Route exact path="/home">
@@ -30,7 +30,6 @@ function App() {
           <Home key="default" />
           <Footer />
         </Route>
-
         <Route exact path="/home/:search">
           <Header />
           <Home key="search" />

@@ -40,8 +40,10 @@ export default function FoodCard() {
           />
           <Card.Body>
             <Card.Title>{buscado.label}</Card.Title>
-            <Card.Text>Food description</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Card.Text>Description</Card.Text>
+            <a href="/home">
+              <Button variant="primary">Back</Button>
+            </a>
           </Card.Body>
         </Card>
       </div>
