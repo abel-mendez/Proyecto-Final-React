@@ -44,7 +44,9 @@ export default function Header() {
                 })}
               </datalist>
               <NavLink exact to={`/home/${form}`}>
-                <Button variant="light">Search</Button>
+                <Button type="button" variant="light">
+                  Search
+                </Button>
               </NavLink>
             </Form>
             <Nav
