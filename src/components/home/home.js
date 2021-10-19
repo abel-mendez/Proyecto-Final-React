@@ -33,15 +33,14 @@ const ordenar = (orden, comidas) => {
   return comidas;
 };
 const Home = () => {
-  const [comidas, setComidas] = useState();
+  const [comidas, setComidas] = useState([]);
   const [orden, setOrden] = useState(-1);
   const [pagina, setPagina] = useState(1);
   const [cantidad, setCantidad] = useState(6);
   const [search, setSearch] = useState("water");
+  const [category, setCategory] = useState("generic-foods");
   const params = useParams();
-  useEffect(() => {
-    buscar(search);
-  }, [search]);
+
   useEffect(() => {
     if (params.search !== undefined) {
       setSearch(params.search);
@@ -49,11 +48,16 @@ const Home = () => {
       setSearch("water");
     }
   }, [params]);
+  useEffect(() => {
+    buscar(search);
+  }, [search, category]);
 
   const buscar = async (params) => {
     let buscado = await axios.get(
       "https://api.edamam.com/api/food-database/v2/parser?app_id=ea9ed3c9&app_key=f17a5f9de1b1a29ec890b8271f82bcfe&ingr=" +
-        params
+        params +
+        "&category=" +
+        category
     );
     setComidas(buscado.data.hints);
   };
@@ -104,24 +108,23 @@ const Home = () => {
                     handleChange(0);
                   }}
                 >
-                  <ButtonCheck key="down" id="down" name="Down" />
+                  <ButtonCheck type="button" key="down" id="down" name="Down" />
                 </p>
                 <p
                   onClick={() => {
                     handleChange(1);
                   }}
                 >
-                  <ButtonCheck key="up" id="up" name="Up" />
+                  <ButtonCheck type="button" key="up" id="up" name="Up" />
                 </p>
               </div>
               <div>
                 <select
                   onChange={(event) => {
-                    console.log(event.target.value);
+                    setCategory(event.target.value);
                   }}
                   className="form-select"
                 >
-                  <option value="">All</option>
                   <option value="generic-foods">Generic Foods</option>
                   <option value="generic-meals">Generic Meals</option>
                   <option value="packaged-foods">Packaged Foods</option>
@@ -145,6 +148,7 @@ const Home = () => {
               </div>
               <div>
                 <button
+                  type="button"
                   onClick={() => {
                     handlePrevious();
                   }}
@@ -153,6 +157,7 @@ const Home = () => {
                   previous
                 </button>
                 <button
+                  type="button"
                   onClick={() => {
                     handleNext();
                   }}
