@@ -66,7 +66,11 @@ export default function Contact() {
               placeholder="Your Full Name"
               onChange={(event) => handleChange(event)}
             />
-            <p className="text-danger">{errors.name}</p>
+            {errors.name ? (
+              <div className="alert alert-danger">{errors.name}</div>
+            ) : (
+              false
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Email address</Form.Label>
@@ -76,7 +80,11 @@ export default function Contact() {
               placeholder="name@example.com"
               onChange={(event) => handleChange(event)}
             />
-            <p className="text-danger">{errors.email}</p>
+            {errors.email ? (
+              <div className="alert alert-danger">{errors.email}</div>
+            ) : (
+              false
+            )}
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Message</Form.Label>
@@ -87,7 +95,11 @@ export default function Contact() {
               rows={3}
               placeholder="Message"
             />
-            <p className="text-danger">{errors.message}</p>
+            {errors.message ? (
+              <div className="alert alert-danger">{errors.message}</div>
+            ) : (
+              false
+            )}
           </Form.Group>
           <Button variant="secondary" disabled={errors.err || form.vacio}>
             <NavLink className="text-white text-decoration-none" to="/home">
