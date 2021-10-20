@@ -45,18 +45,6 @@ export default function Footer() {
               src="https://raw.githubusercontent.com/abel-mendez/responsive_portafolio/0a8506066c617edae6003310ac0745e47b3c5f50/images/github.svg"
             ></img>
           </a>
-          <a
-            target="_blank"
-            rel="noreferrer noopener"
-            className="ms-2"
-            href="https://twitter.com/"
-          >
-            <img
-              alt="twitter"
-              className="logo"
-              src="https://raw.githubusercontent.com/abel-mendez/responsive_portafolio/0a8506066c617edae6003310ac0745e47b3c5f50/images/twitter.svg"
-            ></img>
-          </a>
         </div>
         <div className="align-self-center">
           <NavLink
@@ -105,18 +93,6 @@ export default function Footer() {
               className="logo"
               alt="github"
               src="https://raw.githubusercontent.com/abel-mendez/responsive_portafolio/0a8506066c617edae6003310ac0745e47b3c5f50/images/github.svg"
-            ></img>
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer noopener"
-            className="ms-2"
-            href="https://twitter.com/"
-          >
-            <img
-              className="logo"
-              alt="twitter"
-              src="https://raw.githubusercontent.com/abel-mendez/responsive_portafolio/0a8506066c617edae6003310ac0745e47b3c5f50/images/twitter.svg"
             ></img>
           </a>
         </div>
