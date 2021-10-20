@@ -21,7 +21,10 @@ export default function About() {
             <ListGroup className="list-group-flush">
               <ListGroupItem>27 años</ListGroupItem>
               <ListGroupItem>Localidad: San Salvador de Jujuy</ListGroupItem>
-              <ListGroupItem>Le gusta Zero Two :v</ListGroupItem>
+              <ListGroupItem>
+                Estudiante autodidacta con conocimientos en C#, C++, Java,
+                Android, HTML, Javascript y Css.
+              </ListGroupItem>
             </ListGroup>
             <Card.Body>
               <Card.Link
@@ -43,9 +46,12 @@ export default function About() {
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              <ListGroupItem>24 años (creo xd)</ListGroupItem>
+              <ListGroupItem>24 años</ListGroupItem>
               <ListGroupItem>Localidad: San Salvador de Jujuy</ListGroupItem>
-              <ListGroupItem>Carrea Mancos en el Lol</ListGroupItem>
+              <ListGroupItem>
+                Actualmente tomando cursos de Programacion Web para mejorar mis
+                habilidades como programador.
+              </ListGroupItem>
             </ListGroup>
             <Card.Body>
               <Card.Link
