@@ -40,7 +40,11 @@ export default function FoodCard() {
           />
           <Card.Body>
             <Card.Title>{buscado.label}</Card.Title>
-            <Card.Text>Description</Card.Text>
+            <Card.Text>
+              Calories: {buscado.nutrients["ENERC_KCAL"]} Kcal
+            </Card.Text>
+            <Card.Text>Protein: {buscado.nutrients["PROCNT"]} gr</Card.Text>
+            <Card.Text>Fat: {buscado.nutrients["FAT"]} gr</Card.Text>
             <a href="/home">
               <Button variant="primary">Back</Button>
             </a>
