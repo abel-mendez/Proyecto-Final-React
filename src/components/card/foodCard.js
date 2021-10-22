@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Loading from "../util/loading";
 import axios from "axios";
+import "./foodCards.css";
 
 export default function FoodCard() {
   const [buscado, setBuscado] = useState();
@@ -30,7 +31,7 @@ export default function FoodCard() {
   }
   return (
     <div>
-      <div className=" p-5 d-flex justify-content-center">
+      <div className="cardcitas p-5 d-flex justify-content-center">
         <Card style={{ width: "20rem" }}>
           <Card.Img
             variant="top"

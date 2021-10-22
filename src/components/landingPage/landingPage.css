@@ -3,11 +3,20 @@ section {
   align-items: center;
   justify-content: center;
   align-content: center;
-  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   background-image: url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.landingMain::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .langingMain {
@@ -18,6 +27,7 @@ section {
 }
 
 .landingButtons {
+  animation: fadeIn 3s;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,6 +37,7 @@ section {
 }
 
 .mainTitle {
+  animation: fadeIn 3s;
   font-family: "Lobster", cursive;
   justify-content: center;
   align-content: center;
@@ -34,4 +45,14 @@ section {
   font-size: 100px;
   color: goldenrod;
   font: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    animation-delay: 50ms;
+  }
+  to {
+    opacity: 1;
+  }
 }

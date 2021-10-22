@@ -10,3 +10,12 @@
 .cardsBody div {
   padding: 10px 10px 10px; /* Arreglar esto xd */
 }
+
+.transparent-container-about {
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 40px;
+}

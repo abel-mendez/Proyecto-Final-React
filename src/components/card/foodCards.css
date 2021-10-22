@@ -1,0 +1,9 @@
+.cardcitas:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+  transition: 500ms;
+}
+
+.cardcitas {
+  transition: 500ms;
+  text-decoration: none;
+}
