@@ -86,133 +86,138 @@ const Home = () => {
     );
   }
   return (
-    <>
-      <div className=" container p-5 align-center">
-        <Navbar bg="white" variant="light" expand="lg">
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <div className=" container align-center text-center">
-              <div className="row">
-                <div className="col-md-3">
-                  Order:
-                  <br />
-                  <div
-                    className="btn-group"
-                    role="group"
-                    aria-label="Basic radio toggle button group"
-                  >
-                    <p
-                      onClick={() => {
-                        handleChange(1);
-                      }}
+    <section>
+      <div className="transparent-container">
+        <div className=" container p-5 align-center">
+          <Navbar bg="white" className="pe-5" variant="light" expand="lg">
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <div className=" container align-center text-center">
+                <div className="row">
+                  <div className="col-md-3">
+                    Order:
+                    <br />
+                    <div
+                      className="btn-group"
+                      role="group"
+                      aria-label="Basic radio toggle button group"
                     >
-                      <ButtonCheck type="button" key="up" id="up" name="Up" />
-                    </p>
-                    <p
-                      onClick={() => {
-                        handleChange(0);
-                      }}
-                    >
-                      <ButtonCheck
-                        type="button"
-                        key="down"
-                        id="down"
-                        name="Down"
-                      />
-                    </p>
+                      <p
+                        onClick={() => {
+                          handleChange(1);
+                        }}
+                      >
+                        <ButtonCheck type="button" key="up" id="up" name="Up" />
+                      </p>
+                      <p
+                        onClick={() => {
+                          handleChange(0);
+                        }}
+                      >
+                        <ButtonCheck
+                          type="button"
+                          key="down"
+                          id="down"
+                          name="Down"
+                        />
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="col-md-3">
-                  Type:
-                  <br />
-                  <div>
-                    <select
-                      onChange={(event) => {
-                        setCategory(event.target.value);
-                      }}
-                      className="form-select"
-                    >
-                      <option value="generic-foods">Generic Foods</option>
-                      <option value="generic-meals">Generic Meals</option>
-                      <option value="packaged-foods">Packaged Foods</option>
-                      <option value="fast-foods">Fast Foods</option>
-                    </select>
+                  <div className="col-md-3">
+                    Type:
+                    <br />
+                    <div>
+                      <select
+                        onChange={(event) => {
+                          setCategory(event.target.value);
+                        }}
+                        className="form-select"
+                      >
+                        <option value="generic-foods">Generic Foods</option>
+                        <option value="generic-meals">Generic Meals</option>
+                        <option value="packaged-foods">Packaged Foods</option>
+                        <option value="fast-foods">Fast Foods</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <div className="col-md-3 ">
-                  Quantity:
-                  <br />
-                  <div>
-                    <select
-                      onChange={(event) => {
-                        setCantidad(event.target.value);
-                      }}
-                      className="form-select"
-                      aria-label="Default select example"
-                    >
-                      <option value="20">20 foods</option>
-                      <option value="15">15 foods</option>
-                      <option value="12">12 foods</option>
-                      <option value="9">9 foods</option>
-                      <option value="6">6 foods</option>
-                    </select>
+                  <div className="col-md-3 ">
+                    Quantity:
+                    <br />
+                    <div>
+                      <select
+                        onChange={(event) => {
+                          setCantidad(event.target.value);
+                        }}
+                        className="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option value="20">20 foods</option>
+                        <option value="15">15 foods</option>
+                        <option value="12">12 foods</option>
+                        <option value="9">9 foods</option>
+                        <option value="6">6 foods</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
+            </Navbar.Collapse>
+            <div className="m-auto mt-4">
+              <button
+                type="button"
+                onClick={() => {
+                  handlePrevious();
+                }}
+                className="btn btn-outline-success"
+              >
+                previous
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  handleNext();
+                }}
+                className="btn btn-outline-success"
+              >
+                next
+              </button>
             </div>
-          </Navbar.Collapse>
-          <div className="m-auto mt-4">
-            <button
-              type="button"
-              onClick={() => {
-                handlePrevious();
-              }}
-              className="btn btn-outline-success"
-            >
-              previous
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                handleNext();
-              }}
-              className="btn btn-outline-success"
-            >
-              next
-            </button>
+          </Navbar>
+          <hr></hr>
+          <div className="row">
+            {comidas
+              //compara si el index coincide con la primera coincidencia del item
+              .filter((item, index) => {
+                return (
+                  //busca el index  de la primera coincidencia con el elemento encontrado
+                  comidas.indexOf(
+                    //Encuentras el elemento con el id pasado pasado por el filter
+                    comidas.find(
+                      (element) => item.food.foodId === element.food.foodId
+                    )
+                  ) === index
+                );
+              })
+              .slice((pagina - 1) * cantidad, pagina * cantidad)
+              .map((element) => {
+                return (
+                  <NavLink
+                    className=" col-12 col-md-6 col-lg-4 mb-3 "
+                    exact
+                    key={element.food.foodId}
+                    to={`/food/${element.food.foodId}`}
+                  >
+                    <Food
+                      image={element.food.image}
+                      label={element.food.label}
+                    />
+                  </NavLink>
+                );
+              })}
           </div>
-        </Navbar>
-        <hr></hr>
-        <div className="row">
-          {comidas
-            //compara si el index coincide con la primera coincidencia del item
-            .filter((item, index) => {
-              return (
-                //busca el index  de la primera coincidencia con el elemento encontrado
-                comidas.indexOf(
-                  //Encuentras el elemento con el id pasado pasado por el filter
-                  comidas.find(
-                    (element) => item.food.foodId === element.food.foodId
-                  )
-                ) === index
-              );
-            })
-            .slice((pagina - 1) * cantidad, pagina * cantidad)
-            .map((element) => {
-              return (
-                <NavLink
-                  className=" col-12 col-md-6 col-lg-4 mb-3 "
-                  exact
-                  key={element.food.foodId}
-                  to={`/food/${element.food.foodId}`}
-                >
-                  <Food image={element.food.image} label={element.food.label} />
-                </NavLink>
-              );
-            })}
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

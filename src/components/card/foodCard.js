@@ -30,28 +30,32 @@ export default function FoodCard() {
     );
   }
   return (
-    <div>
-      <div className="cardcitas p-5 d-flex justify-content-center">
-        <Card style={{ width: "20rem" }}>
-          <Card.Img
-            variant="top"
-            src={
-              buscado.image ? buscado.image : "https://i.imgur.com/1iQw2NN.jpg"
-            }
-          />
-          <Card.Body>
-            <Card.Title>{buscado.label}</Card.Title>
-            <Card.Text>
-              Calories: {buscado.nutrients["ENERC_KCAL"]} Kcal
-            </Card.Text>
-            <Card.Text>Protein: {buscado.nutrients["PROCNT"]} gr</Card.Text>
-            <Card.Text>Fat: {buscado.nutrients["FAT"]} gr</Card.Text>
-            <a href="/home">
-              <Button variant="primary">Back</Button>
-            </a>
-          </Card.Body>
-        </Card>
+    <section>
+      <div className="transparent-container">
+        <div className="cardcitas p-5 d-flex justify-content-center">
+          <Card style={{ width: "20rem" }}>
+            <Card.Img
+              variant="top"
+              src={
+                buscado.image
+                  ? buscado.image
+                  : "https://i.imgur.com/1iQw2NN.jpg"
+              }
+            />
+            <Card.Body>
+              <Card.Title>{buscado.label}</Card.Title>
+              <Card.Text>
+                Calories: {buscado.nutrients["ENERC_KCAL"]} Kcal
+              </Card.Text>
+              <Card.Text>Protein: {buscado.nutrients["PROCNT"]} gr</Card.Text>
+              <Card.Text>Fat: {buscado.nutrients["FAT"]} gr</Card.Text>
+              <a href="/home">
+                <Button variant="primary">Back</Button>
+              </a>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
