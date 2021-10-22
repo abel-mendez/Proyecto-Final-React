@@ -14,13 +14,15 @@ const validar = (event, error) => {
   let value = event.target.value;
   let name = event.target.name;
   if (value === "") {
-    error[name] = "Este campo no puede estar vacio";
+    error[name] = "Field is Empty";
   } else if (name === "email" && !/\S+@\S+\.\S+/.test(value)) {
-    error[name] = "Debe ingresar un mail valido";
+    error[name] = "Invalid email address";
   } else if (name === "name" && value.length < 8) {
-    error[name] = "Debe ingresar al menos 8 caracteres";
+    error[name] = "Name must has at least 8 characters";
   } else if (name === "message" && value.length < 10) {
-    error[name] = "Debe ingresar mas de 10 caracteres";
+    error[name] = "You must enter more than 10 characters";
+  } else if (name === "message" && value.length > 256) {
+    error[name] = "Message has to be between 10 and 256 characters";
   } else {
     error[name] = "";
   }
