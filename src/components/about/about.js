@@ -4,7 +4,7 @@ import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
 export default function About() {
   return (
-    <>
+    <section>
       <div class="cardsBody">
         <div>
           <Card style={{ width: "18rem" }}>
@@ -64,6 +64,6 @@ export default function About() {
           </Card>
         </div>
       </div>
-    </>
+    </section>
   );
 }

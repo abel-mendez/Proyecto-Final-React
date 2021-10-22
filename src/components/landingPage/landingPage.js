@@ -25,7 +25,13 @@ export default function Landing() {
           </div>
           <div className="m-5">
             <Link className="text-white text-decoration-none" to="/about">
-              <Button variant="outline-warning" size="lg">
+              <Button
+                variant="warning"
+                size="lg"
+                style={{
+                  color: "#FFFF",
+                }}
+              >
                 About us
               </Button>
             </Link>
