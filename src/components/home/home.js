@@ -33,7 +33,7 @@ const ordenar = (orden, comidas) => {
   return comidas;
 };
 const Home = () => {
-  const [comidas, setComidas] = useState([]);
+  const [comidas, setComidas] = useState();
   const [orden, setOrden] = useState(-1);
   const [pagina, setPagina] = useState(1);
   const [cantidad, setCantidad] = useState(20);
@@ -87,7 +87,7 @@ const Home = () => {
   }
   return (
     <section>
-      <div className="transparent-container">
+      <div className="transparent-container-home">
         <div className=" container p-5 align-center">
           <Navbar bg="white" className="pe-5" variant="light" expand="lg">
             <Navbar.Toggle aria-controls="navbarScroll" />

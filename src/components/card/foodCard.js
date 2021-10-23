@@ -15,7 +15,6 @@ export default function FoodCard() {
         params.id
     );
     setBuscado(buscado.data.hints[0].food);
-    console.log(buscado.data.hints[0].food);
   };
 
   useEffect(() => {

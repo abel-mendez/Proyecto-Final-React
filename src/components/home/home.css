@@ -5,3 +5,9 @@
   justify-content: center;
   align-items: center;
 }
+.transparent-container-home {
+  border-radius: 15px;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 15px;
+}
