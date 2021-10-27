@@ -202,7 +202,7 @@ const Home = () => {
               .map((element) => {
                 return (
                   <NavLink
-                    className=" col-12 col-md-6 col-lg-4 mb-3 "
+                    className=" col-12 col-md-6 col-lg-4 mb-3 text-decoration-none "
                     exact
                     key={element.food.foodId}
                     to={`/food/${element.food.foodId}`}
