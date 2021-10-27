@@ -9,12 +9,14 @@ export default function About() {
         <div class="transparent-container-about">
           <div>
             <Card style={{ width: "18rem" }}>
-              <Card.Img
-                variant="top"
-                src="https://scontent.faep7-1.fna.fbcdn.net/v/t31.18172-8/13198613_113366325743216_4694809539530309603_o.jpg?_nc_cat=104&ccb=1-5&_nc_sid=174925&_nc_ohc=VgCpqFqG_TgAX-45rzn&_nc_ht=scontent.faep7-1.fna&oh=9fce30eaaec69b3c9e7cd7c20ba3020b&oe=6195541E"
-              />
+              <Card.Img variant="top" src="https://i.imgur.com/iEDMFu7.png" />
               <Card.Body>
-                <Card.Title>Leandro Andrés Carello</Card.Title>
+                <Card.Title>
+                  {" "}
+                  <center>
+                    <h3>Leandro Andrés Carello</h3>
+                  </center>
+                </Card.Title>
                 <Card.Text>
                   Estudiante Analista Programador Universitario - UNJU
                 </Card.Text>
@@ -29,19 +31,26 @@ export default function About() {
               </ListGroup>
               <Card.Body>
                 <Card.Link
+                  className="text-decoration-none"
                   target="_blank"
                   href="https://www.linkedin.com/in/leandro-carello-638957223/"
                 >
-                  <center>Linkedin Profile</center>
+                  <center>
+                    <h4>Linkedin Profile</h4>
+                  </center>
                 </Card.Link>
               </Card.Body>
             </Card>
           </div>
           <div>
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="https://i.imgur.com/86S3sqB.png" />
+              <Card.Img variant="top" src="https://i.imgur.com/ubxTv9H.png" />
               <Card.Body>
-                <Card.Title>Abel Mendez Villagra</Card.Title>
+                <Card.Title>
+                  <center>
+                    <h3>Abel Mendez Villagra</h3>
+                  </center>
+                </Card.Title>
                 <Card.Text>
                   Estudiante Analista Programador Universitario - UNJU
                 </Card.Text>
@@ -56,10 +65,13 @@ export default function About() {
               </ListGroup>
               <Card.Body>
                 <Card.Link
+                  className="text-decoration-none"
                   target="_blank"
                   href="https://www.linkedin.com/in/abel-m-villagra/"
                 >
-                  <center>Linkedin Profile</center>
+                  <center>
+                    <h4>Linkedin Profile</h4>
+                  </center>
                 </Card.Link>
               </Card.Body>
             </Card>

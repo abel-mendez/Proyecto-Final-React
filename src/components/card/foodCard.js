@@ -32,23 +32,37 @@ export default function FoodCard() {
     <section>
       <div className="transparent-container">
         <div className="cardcitas p-5 d-flex justify-content-center">
-          <Card style={{ width: "20rem" }}>
+          <Card
+            text="light"
+            border="warning"
+            bg="success"
+            style={{ width: "20rem", borderRadius: 30 }}
+          >
             <Card.Img
               variant="top"
+              style={{ width: "20rem", borderRadius: 30 }}
               src={
                 buscado.image
                   ? buscado.image
                   : "https://i.imgur.com/1iQw2NN.jpg"
               }
             />
-            <Card.Body>
-              <Card.Title>{buscado.label}</Card.Title>
+            <Card.Body className="text-center">
+              <Card.Title>
+                <h1>{buscado.label} :</h1>
+              </Card.Title>
               <Card.Text>
-                Calories: {buscado.nutrients["ENERC_KCAL"]} Kcal
+                <h5>
+                  Calories: {buscado.nutrients["ENERC_KCAL"].toFixed(2)} Kcal
+                </h5>
               </Card.Text>
-              <Card.Text>Protein: {buscado.nutrients["PROCNT"]} gr</Card.Text>
-              <Card.Text>Fat: {buscado.nutrients["FAT"]} gr</Card.Text>
-              <a href="/home">
+              <Card.Text>
+                <h5>Protein: {buscado.nutrients["PROCNT"].toFixed(2)} gr</h5>
+              </Card.Text>
+              <Card.Text>
+                <h5>Fat: {buscado.nutrients["FAT"].toFixed(2)} gr</h5>
+              </Card.Text>
+              <a href="javascript: history.go(-1)">
                 <Button variant="primary">Back</Button>
               </a>
             </Card.Body>

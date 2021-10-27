@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Toast, Row, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./contact.css";
 const vacio = ({ email, name, message }) => {
@@ -33,6 +33,7 @@ const validar = (event, error) => {
   error.err = errores;
   return error;
 };
+
 export default function Contact() {
   const [form, setForm] = useState({
     email: "",
