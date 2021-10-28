@@ -37,7 +37,7 @@ const Home = () => {
   const [orden, setOrden] = useState(-1);
   const [pagina, setPagina] = useState(1);
   const [cantidad, setCantidad] = useState(20);
-  const [search, setSearch] = useState("water");
+  const [search, setSearch] = useState("chocolate");
   const [category, setCategory] = useState("generic-foods");
   const params = useParams();
 
@@ -45,7 +45,7 @@ const Home = () => {
     if (params.search !== undefined) {
       setSearch(params.search);
     } else {
-      setSearch("water");
+      setSearch("chocolate");
     }
   }, [params]);
   useEffect(() => {
