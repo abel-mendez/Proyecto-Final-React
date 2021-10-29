@@ -59,7 +59,20 @@ const Home = () => {
         "&category=" +
         category
     );
-    setComidas(buscado.data.hints);
+    let filtrado = buscado.data.hints
+      //compara si el index coincide con la primera coincidencia del item
+      .filter((item, index) => {
+        return (
+          //busca el index  de la primera coincidencia con el elemento encontrado
+          buscado.data.hints.indexOf(
+            //Encuentras el elemento con el id pasado pasado por el filter
+            buscado.data.hints.find(
+              (element) => item.food.foodId === element.food.foodId
+            )
+          ) === index
+        );
+      });
+    setComidas(filtrado);
   };
   const handleChange = (value) => {
     if (orden !== value) {
@@ -186,18 +199,6 @@ const Home = () => {
           <hr></hr>
           <div className="row">
             {comidas
-              //compara si el index coincide con la primera coincidencia del item
-              .filter((item, index) => {
-                return (
-                  //busca el index  de la primera coincidencia con el elemento encontrado
-                  comidas.indexOf(
-                    //Encuentras el elemento con el id pasado pasado por el filter
-                    comidas.find(
-                      (element) => item.food.foodId === element.food.foodId
-                    )
-                  ) === index
-                );
-              })
               .slice((pagina - 1) * cantidad, pagina * cantidad)
               .map((element) => {
                 return (
