@@ -109,13 +109,18 @@ export default function Contact() {
               className="submit"
               variant="success"
               disabled={errors.err || form.vacio}
+              onClick={() => alert("Mensaje enviado")}
             >
               <NavLink className="text-white text-decoration-none" to="/home">
                 Submit
               </NavLink>
             </Button>
             <NavLink to="/home">
-              <Button className="Cancel" variant="danger">
+              <Button
+                onClick={() => alert("Su mensaje no fue enviado")}
+                className="Cancel"
+                variant="danger"
+              >
                 Cancel
               </Button>
             </NavLink>

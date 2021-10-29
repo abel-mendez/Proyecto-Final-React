@@ -40,6 +40,14 @@ function App() {
           <FoodCard />
           <Footer />
         </Route>
+        <Route exact path="*">
+          <Header />
+          <div className="notfound">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKeiojHtqSReVaxvF870o1YK1YXHPcTgUw-AyoLyEhIWQrIDwoPNxp_6_NMVGewa_IVtE&usqp=CAU"></img>
+          </div>
+
+          <Footer />
+        </Route>
       </Switch>
     </>
   );
